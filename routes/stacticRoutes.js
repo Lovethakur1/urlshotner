@@ -18,7 +18,7 @@ router.get('/', restrictTo(['NORMAL']), async (req, res) => {
     // Ensure only logged-in users can access the home page listing
     if (!req.user) return res.redirect('/login');
 
-    const allurls = await URL.find({ createdBy: req.user._id });
+    const allurls = await URL.find({ createdBy: req.user._id }).populate('createdBy', 'name email');
     return res.render('home', {
         urls: allurls,
     });
