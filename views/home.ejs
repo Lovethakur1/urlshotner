@@ -109,20 +109,6 @@
                                             <a href="<%= url.redirectUrl %>" class="hover:text-indigo-300 hover:underline" target="_blank"><%= url.redirectUrl %></a>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-200">
-                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-400/20 text-indigo-200">
-                                                <%= url.visitHistory.length %> clicks
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-200"><%= url.createdAt.toLocaleString() %></td>   
-
-                                        <% if (locals.user && user.role === 'Admin') { %>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-200"><%= url.createdBy.name %></td>
-                                        <% } %>
-
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                            <div class="flex items-center gap-2">
-                                                <a href="/stats/<%= url.shortId %>" class="inline-flex items-center px-3 py-1.5 rounded-md bg-indigo-500/20 border border-indigo-500/30 hover:bg-indigo-500/30 text-indigo-200 transition text-xs">
-                                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                                                     </svg>
                                                     Stats
