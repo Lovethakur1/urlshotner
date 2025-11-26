@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/health', healthRoute)
-app.use('/url', restrictTo('NORMAL'), urlRoutes)
+app.use('/url', restrictTo(['NORMAL', 'Admin']), urlRoutes)
 app.use('/user', UserRoute)
 // Populate req.user if a session exists for all static routes
 app.use('/', staticRoutes)

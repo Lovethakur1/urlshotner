@@ -26,10 +26,20 @@ router.get('/', restrictTo(['NORMAL']), async (req, res) => {
 
 
 router.get('/signup', (req, res) => {
+    // If user is already logged in, redirect to home
+    if (req.user) {
+        if (req.user.role === 'Admin') return res.redirect('/admin/urls');
+        return res.redirect('/');
+    }
     return res.render('signup');
 })
 
 router.get('/login', (req, res) => {
+    // If user is already logged in, redirect to home
+    if (req.user) {
+        if (req.user.role === 'Admin') return res.redirect('/admin/urls');
+        return res.redirect('/');
+    }
     return res.render('login')
 })
 
