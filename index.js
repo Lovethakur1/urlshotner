@@ -8,6 +8,7 @@ const app = express();
 const staticRoutes = require('./routes/stacticRoutes');
 const UserRoute = require('./routes/user')
 const healthRoute = require('./routes/health')
+const adminRoute = require('./routes/admin')
 const { checkForAuthentication, restrictTo } = require('./middleware/auth')
 
 const cookieParser = require('cookie-parser')
@@ -41,6 +42,7 @@ app.use((req, res, next) => {
 app.use('/health', healthRoute)
 app.use('/url', restrictTo(['NORMAL', 'Admin']), urlRoutes)
 app.use('/user', UserRoute)
+app.use('/admin', adminRoute)
 // Populate req.user if a session exists for all static routes
 app.use('/', staticRoutes)
 
